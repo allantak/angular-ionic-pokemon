@@ -1,0 +1,30 @@
+.wrapper-card {
+  height: 20%;
+
+  .background-circul{
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    left: 70%;
+    border-radius: 0 0 0 10rem;
+    background-color: black;
+    z-index: -2;
+  }
+
+  ion-card-content{
+    display: flex;
+    gap: 0.5rem;
+    flex-direction: row;
+
+    .typesPokemon{
+      display: inline-table;
+      text-align: center;
+      min-width: 50px;
+      background-color: aqua;
+      border-radius: 10px;
+    }
+
+  }
+}
+
+
