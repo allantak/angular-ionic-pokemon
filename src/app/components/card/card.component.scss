@@ -1,27 +1,24 @@
 .wrapper-card {
   height: 20%;
+  z-index: -99;
+  overflow: visible;
 
-  .background-circul {
-    position: absolute;
-    width: 100px;
-    height: 100px;
-    right: 0px;
-    top: 0px;
-    border-radius: 0 0 0 10rem;
-    background-color: black;
+  ion-card-title{
+    text-transform: capitalize;
   }
 
-  ion-card-content {
+  .wrapper-type {
     display: flex;
-    gap: 0.5rem;
     flex-direction: row;
+    gap: 0.5rem;
 
     .typesPokemon {
-      display: inline-table;
+      text-transform: capitalize;
       text-align: center;
-      min-width: 50px;
-      background-color: aqua;
-      border-radius: 10px;
+      padding: 5px;
+      background-color: blueviolet;
+      border-radius: 5px;
+      color: white;
     }
 
   }
@@ -30,18 +27,26 @@
 .hearder {
   display: flex;
   justify-content: space-between;
-  padding-bottom: 0;
 
   div:nth-child(2) {
-    display: flex;
-    align-items: flex-end;
-    z-index: -2;
+    z-index: 0;
 
     img {
-      position: relative;
-      top: 3px;
-      right: 25px;
-      scale: 1.5;
+      width: 80px;
+      height: 80px;
+      resize: unset;
+      z-index: -1;
+    }
+
+    .background-circul {
+      position: absolute;
+      width: 100px;
+      height: 100px;
+      right: 0px;
+      top: 0px;
+      border-radius: 0 0 0 10rem;
+      background-color: blueviolet;
+      z-index: -2;
     }
   }
 }

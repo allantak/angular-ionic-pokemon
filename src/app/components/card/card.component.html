@@ -2,19 +2,18 @@
 
   <ion-card-header class="hearder">
     <div>
-      <ion-card-subtitle>#001</ion-card-subtitle>
-      <ion-card-title>Pokemon</ion-card-title>
+      <ion-card-subtitle>#{{pokemons.id}}</ion-card-subtitle>
+      <ion-card-title>{{pokemons.name}}</ion-card-title>
+      <div class="wrapper-type">
+
+        <p *ngFor="let type of pokemons.types" class="typesPokemon">{{type.type.name}}</p>
+
+      </div>
+
     </div>
     <div>
-      <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/94.gif">
+      <img [src]="imgUrl">
       <div class="background-circul"></div>
     </div>
   </ion-card-header>
-
-  <ion-card-content>
-    <div class="typesPokemon">
-      <p>Ghost</p>
-    </div>
-
-  </ion-card-content>
 </ion-card>

@@ -27,10 +27,7 @@
     </ion-toolbar>
   </ion-header>
 
-  <app-card></app-card>
-  <app-card></app-card>
-  <app-card></app-card>
-  <app-card></app-card>
-  <app-card></app-card>
-  <app-card></app-card>
+
+  <app-card *ngFor="let vasco of pokemon" [pokemons]="vasco"></app-card>
+
 </ion-content>
