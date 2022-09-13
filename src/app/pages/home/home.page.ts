@@ -28,7 +28,6 @@ export class HomePage implements OnInit {
   pokemon: any[];
 
   constructor(
-    private data: DataService,
     private servicePokemon: PokemonService
   ) {
   }
@@ -43,10 +42,6 @@ export class HomePage implements OnInit {
     }, 3000);
   }
 
-  getMessages(): Message[] {
-    return this.data.getMessages();
-  }
-
   getAllPokemon() {
     this.servicePokemon.getAllPokemon().then((allPokemon: Result) => {
       this.loadPokemon(allPokemon.results);
@@ -55,11 +50,29 @@ export class HomePage implements OnInit {
     });
   }
 
-  async loadPokemon(data: object[]){
+  async prevPokemon() {
+    if(!this.prevUrl){
+      return;
+    }
+    this.servicePokemon.getPokemon(this.prevUrl).then((data: Result)=>{
+      this.loadPokemon(data.results);
+      this.prevUrl = data.previous;
+      this.nextUrl = data.next;
+    });
+  }
+
+  async nextPokemon() {
+    this.servicePokemon.getPokemon(this.nextUrl).then((data: Result)=>{
+      this.loadPokemon(data.results);
+      this.prevUrl = data.previous;
+      this.nextUrl = data.next;
+    });
+  }
+
+  async loadPokemon(data: object[]) {
     const allPokemon = await Promise.all(
       data.map(async (listPokemon: ListPokemon) => {
-        const  pokemonRecord = await  this.servicePokemon.getPokemon(listPokemon.url);
-        console.log(pokemonRecord);
+        const pokemonRecord = await this.servicePokemon.getPokemon(listPokemon.url);
         return pokemonRecord;
       })
     );

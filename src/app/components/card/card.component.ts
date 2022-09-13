@@ -41,7 +41,6 @@ export class CardComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    console.log(this.pokemons);
     this.imgUrl = this.pokemons.sprites.versions['generation-v']['black-white'].animated.front_default;
   }
 
