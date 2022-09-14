@@ -1,7 +1,8 @@
+import { TypeBackGroundColorPipe } from './../../pipes/typeBackGroundColor/type-back-ground-color.pipe';
+import { TypeColorPipe } from './../../pipes/typeColor/type-color.pipe';
 import { IPokemonDataCard } from 'src/app/components/card/card.component';
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
-import { DataService, Message } from '../../services/data.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-view-message',
@@ -11,14 +12,19 @@ import { DataService, Message } from '../../services/data.service';
 export class ViewMessagePage implements OnInit {
   pokemons: IPokemonDataCard;
   imgUrl: any;
+  colorNavbar: any;
+  segmentValue = 'about';
+  colorType: string;
+
   constructor(
-    private data: DataService,
-    private activatedRoute: ActivatedRoute,
     private router: Router,
+    private pipeColorType: TypeColorPipe,
+    private pipeColorTypeBack: TypeBackGroundColorPipe,
   ) {
     this.pokemons = this.router.getCurrentNavigation().extras.state.pokemons;
     this.imgUrl = this.pokemons.sprites.versions['generation-v']['black-white'].animated.front_default;
-    console.log(this.pokemons);
+    this.colorNavbar = '#ffff';
+    this.colorNavbar = this.pipeColorType.transform(this.pokemons.types[0].type.name);
   }
 
 
@@ -29,5 +35,9 @@ export class ViewMessagePage implements OnInit {
     const win = window as any;
     const mode = win && win.Ionic && win.Ionic.mode;
     return mode === 'ios' ? 'Inbox' : '';
+  }
+
+  segmentChanged(event) {
+    this.segmentValue = event.detail.value;
   }
 }

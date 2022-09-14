@@ -6,7 +6,7 @@
 
       <div class="wrapper-type">
 
-        <p *ngFor="let type of pokemons.types" [style.background-color]="colorType" class="typesPokemon">
+        <p *ngFor="let type of pokemons.types" [style.background-color]="type.type.name | typeColor" class="typesPokemon">
           {{type.type.name}}</p>
 
       </div>
@@ -14,7 +14,7 @@
     </div>
     <div>
       <img [src]="imgUrl">
-      <div class="background-circul" [style.background-color]="moreColorType ? moreColorType : colorType"></div>
+      <div class="background-circul" [style.background-color]="colorType"></div>
     </div>
   </ion-card-header>
 </ion-card>

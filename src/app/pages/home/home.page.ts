@@ -80,6 +80,6 @@ export class HomePage implements OnInit {
   }
 
   goTo(pokemon){
-    this.router.navigateByUrl('/page', { state: {pokemons : pokemon} });
+    this.router.navigateByUrl('/detail', { state: {pokemons : pokemon} });
   }
 }

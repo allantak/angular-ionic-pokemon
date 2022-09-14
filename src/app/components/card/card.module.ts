@@ -1,22 +1,21 @@
+import { PipesModule } from './../../pipes/pipes.module';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CardComponent } from './card.component';
 import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
-import colorBack from 'src/app/helper/colorBack';
 import { RouterModule } from '@angular/router';
-
-
 
 @NgModule({
   declarations: [
-    CardComponent
+    CardComponent,
   ],
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    RouterModule
+    RouterModule,
+    PipesModule,
   ],
   exports: [CardComponent]
 })

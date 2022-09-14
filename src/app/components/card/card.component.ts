@@ -6,6 +6,9 @@ import typeColors from 'src/app/helper/colorType';
 export interface IPokemonDataCard {
   id: number;
   name: string;
+  height: number;
+  base_experience: number;
+  weight: number;
   types: IPokemonTypes[];
   sprites: IPokemonImg;
   stats?: IPokemonStats[];
@@ -53,13 +56,6 @@ export class CardComponent implements OnInit {
 
   ngOnInit() {
     this.imgUrl = this.pokemons.sprites.versions['generation-v']['black-white'].animated.front_default;
-    this.pokemons.types.map((type) => {
-      if (type.slot === 2) {
-        this.moreColorType = typeColors[type.type.name];
-      } else {
-        this.colorType = typeColors[type.type.name];
-      }
-
-    });
+    this.colorType = typeColors[this.pokemons.types[0].type.name];
   }
 }

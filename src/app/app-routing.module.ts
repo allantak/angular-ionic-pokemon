@@ -12,7 +12,7 @@ const routes: Routes = [
     loadChildren: () => import('./pages/view-message/view-message.module').then( m => m.ViewMessagePageModule)
   },
   {
-    path: 'page', loadChildren: () => import('./pages/view-message/view-message.module').then( m => m.ViewMessagePageModule)
+    path: 'detail', loadChildren: () => import('./pages/view-message/view-message.module').then( m => m.ViewMessagePageModule)
   },
   {
     path: '',

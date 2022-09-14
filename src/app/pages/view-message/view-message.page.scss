@@ -1,3 +1,5 @@
+@import url('../../../theme/variables.scss');
+
 ion-item {
   --inner-padding-end: 0;
   --background: transparent;
@@ -39,28 +41,124 @@ p {
   line-height: 22px;
 }
 
-.wrapper-type {
-  display: flex;
-  flex-direction: row;
-  gap: 0.5rem;
+ion-header:nth-child(1) {
+  ion-toolbar {
+    --background: aquamarine;
+    border-style: none;
+    --opacity: 1;
+    --border-style: none;
 
-  .typesPokemon {
-    text-transform: capitalize;
-    text-align: center;
-    padding: 5px;
-    background-color: blueviolet;
-    border-radius: 5px;
-    color: white;
-    min-width: 80px;
+    ion-back-buttton {
+      font-size: 15px;
+    }
   }
 }
 
-.wrapper-content{
-  border-radius: 20px 20px 0 0;
+ion-header:nth-child(2) {
+  --border-style: none;
+
+  .wrapper-content-header {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 30vh;
+    background-color: aquamarine;
+
+    ion-card-title{
+      margin-bottom: 4px;
+    }
+
+    .wrapper-img {
+      text-align: center;
+
+      img {
+        position: relative;
+        width: 100px;
+        height: 100px;
+        object-fit: contain;
+        top: 20px;
+      }
+    }
+
+  }
 
 }
 
-ion-content{
-  border-radius: 10px 10px 0 0;
+
+ion-content {
+  --background: aquamarine;
+
+  h6 {
+    font-size: 17px;
+    text-align: center;
+  }
+}
+
+.backgroundCostumer {
+  border-radius: 40px 40px 0 0;
+  height: 100%;
+  background-color: white;
+}
+
+.wrapper-content-type {
+  .wrapper-type {
+    display: flex;
+    flex-direction: row;
+    gap: 0.5rem;
+
+    .typesPokemon {
+      text-transform: capitalize;
+      text-align: center;
+      padding: 5px;
+      background-color: blueviolet;
+      border-radius: 5px;
+      color: white;
+      min-width: 80px;
+      margin-top: 0;
+    }
+  }
+
+}
+
+ion-segment {
+  margin-top: 16px;
+}
+
+.wrapper-about-card {
+  display: flex;
+  justify-content: space-around;
+
+  ion-card-content{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+.wrapper-stats {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  margin-top: 16px;
+
+
+  ion-label {
+    width: 40%;
+    text-align: center;
+    padding-right: 10px;
+    color: #666666;
+    border-right: 1px solid #666666;
+    margin: 0;
+  }
+
+  span{
+    width: 10%;
+    text-align: center;
+  }
+
+  ion-progress-bar{
+    width: 40%;
+  }
+
 
 }
