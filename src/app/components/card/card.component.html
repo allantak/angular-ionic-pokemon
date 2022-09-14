@@ -3,16 +3,18 @@
     <div>
       <ion-card-subtitle>#{{pokemons.id}}</ion-card-subtitle>
       <ion-card-title>{{pokemons.name}}</ion-card-title>
+
       <div class="wrapper-type">
 
-        <p *ngFor="let type of pokemons.types" class="typesPokemon">{{type.type.name}}</p>
+        <p *ngFor="let type of pokemons.types" [style.background-color]="colorType" class="typesPokemon">
+          {{type.type.name}}</p>
 
       </div>
 
     </div>
     <div>
       <img [src]="imgUrl">
-      <div class="background-circul"></div>
+      <div class="background-circul" [style.background-color]="moreColorType ? moreColorType : colorType"></div>
     </div>
   </ion-card-header>
 </ion-card>

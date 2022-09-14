@@ -28,7 +28,7 @@
   </ion-header>
 
 
-  <app-card *ngFor="let vasco of pokemon" [pokemons]="vasco"></app-card>
+  <app-card (click)="goTo(pokemons)" *ngFor="let pokemons of pokemon" [pokemons]="pokemons"></app-card>
 
   <ion-row>
     <ion-col size="6" class="ion-justify-content-end">

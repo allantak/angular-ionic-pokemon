@@ -1,7 +1,6 @@
+import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
-import { IPokemonDataCard } from 'src/app/components/card/card.component';
 import { PokemonService } from 'src/app/services/pokemon.service';
-import { DataService, Message } from '../../services/data.service';
 
 interface Result {
   results: object[];
@@ -28,7 +27,8 @@ export class HomePage implements OnInit {
   pokemon: any[];
 
   constructor(
-    private servicePokemon: PokemonService
+    private servicePokemon: PokemonService,
+    private router: Router
   ) {
   }
 
@@ -77,5 +77,9 @@ export class HomePage implements OnInit {
       })
     );
     this.pokemon = allPokemon;
+  }
+
+  goTo(pokemon){
+    this.router.navigateByUrl('/page', { state: {pokemons : pokemon} });
   }
 }

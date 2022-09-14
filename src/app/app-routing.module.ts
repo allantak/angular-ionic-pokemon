@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { ViewMessagePageModule } from './pages/view-message/view-message.module';
 
 const routes: Routes = [
   {
@@ -9,6 +10,9 @@ const routes: Routes = [
   {
     path: 'message/:id',
     loadChildren: () => import('./pages/view-message/view-message.module').then( m => m.ViewMessagePageModule)
+  },
+  {
+    path: 'page', loadChildren: () => import('./pages/view-message/view-message.module').then( m => m.ViewMessagePageModule)
   },
   {
     path: '',

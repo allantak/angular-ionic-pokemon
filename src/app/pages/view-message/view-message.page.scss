@@ -38,3 +38,29 @@ h1 {
 p {
   line-height: 22px;
 }
+
+.wrapper-type {
+  display: flex;
+  flex-direction: row;
+  gap: 0.5rem;
+
+  .typesPokemon {
+    text-transform: capitalize;
+    text-align: center;
+    padding: 5px;
+    background-color: blueviolet;
+    border-radius: 5px;
+    color: white;
+    min-width: 80px;
+  }
+}
+
+.wrapper-content{
+  border-radius: 20px 20px 0 0;
+
+}
+
+ion-content{
+  border-radius: 10px 10px 0 0;
+
+}

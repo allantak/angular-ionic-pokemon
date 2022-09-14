@@ -19,6 +19,7 @@
       background-color: blueviolet;
       border-radius: 5px;
       color: white;
+      min-width: 80px;
     }
 
   }
@@ -32,9 +33,9 @@
     z-index: 0;
 
     img {
-      width: 80px;
-      height: 80px;
-      resize: unset;
+      width: 100px;
+      height: 100px;
+      object-fit: contain;
       z-index: -1;
     }
 
