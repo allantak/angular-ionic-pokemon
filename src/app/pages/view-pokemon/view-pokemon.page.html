@@ -9,13 +9,17 @@
 <ion-header mode="ios">
   <div class="ion-padding wrapper-content-header" [style.background-color]="colorNavbar">
     <div>
-      <ion-card-subtitle color="light" class="ion-float-right">#{{pokemons.id}}</ion-card-subtitle>
-      <ion-card-title color="light">{{pokemons.name}}</ion-card-title>
+
+      <div class="content-card-header">
+        <ion-card-title color="light">{{pokemons.name}}</ion-card-title>
+        <ion-card-title color="light">#{{pokemons.id}}</ion-card-title>
+      </div>
+
 
       <div class="wrapper-content-type">
         <div class="wrapper-type">
 
-          <p *ngFor="let type of pokemons.types" [style.background-color]="type.type.name | typeBackGroundColor" class="typesPokemon">
+          <p *ngFor="let type of pokemons.types" [style.background-color]="type.type.name | typeColor" class="typesPokemon">
             {{type.type.name}}</p>
         </div>
       </div>

@@ -1,45 +1,7 @@
 /* eslint-disable @typescript-eslint/naming-convention */
-import { Component, HostListener, Input, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import typeColors from 'src/app/helper/colorType';
-
-export interface IPokemonDataCard {
-  id: number;
-  name: string;
-  height: number;
-  base_experience: number;
-  weight: number;
-  types: IPokemonTypes[];
-  sprites: IPokemonImg;
-  stats?: IPokemonStats[];
-}
-
-interface IPokemonTypes {
-  slot: number;
-  type: {
-    name: string;
-    url: string;
-  };
-}
-
-interface IPokemonImg {
-  versions: {
-    'generation-v': {
-      'black-white': {
-        animated: {
-          front_default: string;
-        };
-      };
-    };
-  };
-}
-
-interface IPokemonStats {
-  base_stat: number;
-  stat: {
-    name: string;
-  };
-}
+import { Component, Input, OnInit } from '@angular/core';
+import { TypeColorPipe } from './../../pipes/typeColor/type-color.pipe';
+import { IPokemon } from './../../models/pokemon';
 
 @Component({
   selector: 'app-card',
@@ -47,15 +9,15 @@ interface IPokemonStats {
   styleUrls: ['./card.component.scss'],
 })
 export class CardComponent implements OnInit {
-  @Input() pokemons: IPokemonDataCard;
+  @Input() pokemons: IPokemon;
   imgUrl: any;
   colorType: any;
   moreColorType: any;
 
-  constructor() { }
+  constructor(private pipeColorType: TypeColorPipe) { }
 
   ngOnInit() {
     this.imgUrl = this.pokemons.sprites.versions['generation-v']['black-white'].animated.front_default;
-    this.colorType = typeColors[this.pokemons.types[0].type.name];
+    this.colorType = this.pipeColorType.transform(this.pokemons.types[0].type.name);
   }
 }

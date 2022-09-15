@@ -1,3 +1,4 @@
+import { TypeColorPipe } from './../../pipes/typeColor/type-color.pipe';
 import { PipesModule } from './../../pipes/pipes.module';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -17,6 +18,9 @@ import { RouterModule } from '@angular/router';
     RouterModule,
     PipesModule,
   ],
-  exports: [CardComponent]
+  exports: [CardComponent],
+  providers: [
+    TypeColorPipe
+  ]
 })
 export class CardModule { }

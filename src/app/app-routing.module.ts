@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
-import { ViewMessagePageModule } from './pages/view-message/view-message.module';
 
 const routes: Routes = [
   {
@@ -8,11 +7,7 @@ const routes: Routes = [
     loadChildren: () => import('./pages/home/home.module').then( m => m.HomePageModule)
   },
   {
-    path: 'message/:id',
-    loadChildren: () => import('./pages/view-message/view-message.module').then( m => m.ViewMessagePageModule)
-  },
-  {
-    path: 'detail', loadChildren: () => import('./pages/view-message/view-message.module').then( m => m.ViewMessagePageModule)
+    path: 'detail', loadChildren: () => import('./pages/view-pokemon/view-pokemon.module').then( m => m.ViewMessagePageModule)
   },
   {
     path: '',

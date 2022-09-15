@@ -8,41 +8,41 @@ export class TypeBackGroundColorPipe implements PipeTransform {
   transform(value: string): string {
     switch (value) {
       case 'bug':
-        return '#f8d5a3';
+        return '#A6B91A';
       case 'dragon':
-        return '#97b3e6';
+        return '#6F35FC';
       case 'fairy':
-        return '#fceaff';
+        return '#D685AD';
       case 'fire':
-        return '#FDDFDF';
+        return '#EE8130';
       case 'ghost':
-        return '#BAA5DD';
+        return '#735797';
       case 'ground':
-        return '#f4e7da';
+        return '#E2BF65';
       case 'normal':
-        return '#F5F5F5';
+        return '#A8A77A';
       case 'psychic':
-        return '#FCB8E0';
+        return '#F95587';
       case 'steel':
-        return '#BFFFD9';
+        return '#B7B7CE';
       case 'dark':
-        return '#EBE8E8';
+        return '#705746';
       case 'electric':
-        return '#FCF7DE';
+        return '#F7D02C';
       case 'fighting':
-        return '#E6E0D4';
+        return '#C22E28';
       case 'flying':
-        return '#F5F5F5';
+        return '#A98FF3';
       case 'grass':
-        return '#DEFDE0';
+        return '#7AC74C';
       case 'ice':
-        return '#ADECFF';
+        return '#96D9D6';
       case 'poison':
-        return '#98d7a5';
+        return '#A33EA1';
       case 'rock':
-        return '#d5d5d4';
+        return '#B6A136';
       case 'water':
-        return '#DEF3FD';
+        return '#6390F0';
     }
   }
 

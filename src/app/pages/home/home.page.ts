@@ -1,17 +1,8 @@
+import { IPokemon } from './../../models/pokemon';
+import { IResult, IListPokemon } from './../../models/listPokemon';
 import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { PokemonService } from 'src/app/services/pokemon.service';
-
-interface Result {
-  results: object[];
-  previous?: string;
-  next?: string;
-}
-
-interface ListPokemon {
-  name: string;
-  url: string;
-}
 
 @Component({
   selector: 'app-home',
@@ -42,7 +33,7 @@ export class HomePage implements OnInit {
   }
 
   getAllPokemon() {
-    this.servicePokemon.getAllPokemon().then((allPokemon: Result) => {
+    this.servicePokemon.getAllPokemon().then((allPokemon: IResult) => {
       this.loadPokemon(allPokemon.results);
       this.prevUrl = allPokemon.previous;
       this.nextUrl = allPokemon.next;
@@ -53,7 +44,7 @@ export class HomePage implements OnInit {
     if (!this.prevUrl) {
       return;
     }
-    this.servicePokemon.getPokemon(this.prevUrl).then((data: Result) => {
+    this.servicePokemon.getPokemon(this.prevUrl).then((data: IResult) => {
       this.loadPokemon(data.results);
       this.prevUrl = data.previous;
       this.nextUrl = data.next;
@@ -61,7 +52,7 @@ export class HomePage implements OnInit {
   }
 
   async nextPokemon() {
-    this.servicePokemon.getPokemon(this.nextUrl).then((data: Result) => {
+    this.servicePokemon.getPokemon(this.nextUrl).then((data: IResult) => {
       this.loadPokemon(data.results);
       this.prevUrl = data.previous;
       this.nextUrl = data.next;
@@ -70,7 +61,7 @@ export class HomePage implements OnInit {
 
   async loadPokemon(data: object[]) {
     const allPokemon = await Promise.all(
-      data.map(async (listPokemon: ListPokemon) => {
+      data.map(async (listPokemon: IListPokemon) => {
         const pokemonRecord = await this.servicePokemon.getPokemon(listPokemon.url);
         return pokemonRecord;
       })

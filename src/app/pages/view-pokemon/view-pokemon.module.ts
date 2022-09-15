@@ -3,12 +3,12 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 
-import { ViewMessagePage } from './view-message.page';
-import { ViewMessagePageRoutingModule } from './view-message-routing.module';
-import { PipesModule } from './../../pipes/pipes.module';
-import { TypeBackGroundColorPipe } from './../../pipes/typeBackGroundColor/type-back-ground-color.pipe';
-import { ProgressBarPipe } from './../../pipes/progressBar/progress-bar.pipe';
-import { TypeColorPipe } from './../../pipes/typeColor/type-color.pipe';
+import { ViewPokemonPage } from './view-pokemon.page';
+import { ViewMessagePageRoutingModule } from './view-pokemon-routing.module';
+import { PipesModule } from '../../pipes/pipes.module';
+import { TypeBackGroundColorPipe } from '../../pipes/typeBackGroundColor/type-back-ground-color.pipe';
+import { ProgressBarPipe } from '../../pipes/progressBar/progress-bar.pipe';
+import { TypeColorPipe } from '../../pipes/typeColor/type-color.pipe';
 
 @NgModule({
   imports: [
@@ -19,7 +19,7 @@ import { TypeColorPipe } from './../../pipes/typeColor/type-color.pipe';
     PipesModule
   ],
   declarations: [
-    ViewMessagePage,
+    ViewPokemonPage,
   ],
   providers: [
     TypeColorPipe,

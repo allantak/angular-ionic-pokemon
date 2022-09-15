@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { ViewMessagePage } from './view-message.page';
+import { ViewPokemonPage } from './view-pokemon.page';
 
 const routes: Routes = [
   {
     path: '',
-    component: ViewMessagePage
+    component: ViewPokemonPage
   }
 ];
 

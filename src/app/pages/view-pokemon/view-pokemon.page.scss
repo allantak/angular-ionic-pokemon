@@ -1,49 +1,8 @@
 @import url('../../../theme/variables.scss');
 
-ion-item {
-  --inner-padding-end: 0;
-  --background: transparent;
-}
-
-ion-label {
-  margin-top: 12px;
-  margin-bottom: 12px;
-}
-
-ion-item h2 {
-  font-weight: 600;
-}
-
-ion-item .date {
-  float: right;
-  align-items: center;
-  display: flex;
-}
-
-ion-item ion-icon {
-  font-size: 42px;
-  margin-right: 8px;
-}
-
-ion-item ion-note {
-  font-size: 15px;
-  margin-right: 12px;
-  font-weight: normal;
-}
-
-h1 {
-  margin: 0;
-  font-weight: bold;
-  font-size: 22px;
-}
-
-p {
-  line-height: 22px;
-}
-
 ion-header:nth-child(1) {
   ion-toolbar {
-    --background: aquamarine;
+    --background: '#9eb7b';
     border-style: none;
     --opacity: 1;
     --border-style: none;
@@ -62,11 +21,42 @@ ion-header:nth-child(2) {
     flex-direction: column;
     justify-content: space-between;
     height: 30vh;
-    background-color: aquamarine;
+    background-color: '#9eb7b';
 
-    ion-card-title{
-      margin-bottom: 4px;
+    .content-card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      ion-card-title {
+        margin-bottom: 4px;
+        text-transform: capitalize;
+      }
+
+
     }
+
+    .wrapper-content-type {
+      .wrapper-type {
+        display: flex;
+        flex-direction: row;
+        gap: 0.5rem;
+
+        .typesPokemon {
+          text-transform: capitalize;
+          text-align: center;
+          border: 1px solid white;
+          padding: 5px;
+          background-color: blueviolet;
+          border-radius: 5px;
+          color: white;
+          min-width: 80px;
+          margin-top: 0;
+        }
+      }
+
+    }
+
 
     .wrapper-img {
       text-align: center;
@@ -100,38 +90,18 @@ ion-content {
   background-color: white;
 }
 
-.wrapper-content-type {
-  .wrapper-type {
-    display: flex;
-    flex-direction: row;
-    gap: 0.5rem;
 
-    .typesPokemon {
-      text-transform: capitalize;
-      text-align: center;
-      padding: 5px;
-      background-color: blueviolet;
-      border-radius: 5px;
-      color: white;
-      min-width: 80px;
-      margin-top: 0;
-    }
-  }
-
-}
 
 ion-segment {
   margin-top: 16px;
 }
 
 .wrapper-about-card {
-  display: flex;
-  justify-content: space-around;
 
-  ion-card-content{
+
+  ion-card-content {
     display: flex;
     flex-direction: column;
-    text-align: center;
   }
 }
 
@@ -151,12 +121,12 @@ ion-segment {
     margin: 0;
   }
 
-  span{
+  span {
     width: 10%;
     text-align: center;
   }
 
-  ion-progress-bar{
+  ion-progress-bar {
     width: 40%;
   }
 

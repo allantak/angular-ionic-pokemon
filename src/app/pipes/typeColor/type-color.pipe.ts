@@ -24,7 +24,7 @@ export class TypeColorPipe implements PipeTransform {
       case 'psychic':
         return '#f366b9';
       case 'steel':
-        return '#9eb7b';
+        return '#C0C0C0';
       case 'dark':
         return '#707070';
       case 'electric':
