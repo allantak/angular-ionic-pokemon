@@ -20,11 +20,12 @@ interface ListPokemon {
 })
 
 export class HomePage implements OnInit {
-
-  objectPokemon: object;
   prevUrl: string;
   nextUrl: string;
   pokemon: any[];
+  search: string;
+
+  notFound = false;
 
   constructor(
     private servicePokemon: PokemonService,
@@ -37,9 +38,7 @@ export class HomePage implements OnInit {
   }
 
   refresh(ev) {
-    setTimeout(() => {
-      ev.detail.complete();
-    }, 3000);
+    console.log(ev);
   }
 
   getAllPokemon() {
@@ -51,10 +50,10 @@ export class HomePage implements OnInit {
   }
 
   async prevPokemon() {
-    if(!this.prevUrl){
+    if (!this.prevUrl) {
       return;
     }
-    this.servicePokemon.getPokemon(this.prevUrl).then((data: Result)=>{
+    this.servicePokemon.getPokemon(this.prevUrl).then((data: Result) => {
       this.loadPokemon(data.results);
       this.prevUrl = data.previous;
       this.nextUrl = data.next;
@@ -62,7 +61,7 @@ export class HomePage implements OnInit {
   }
 
   async nextPokemon() {
-    this.servicePokemon.getPokemon(this.nextUrl).then((data: Result)=>{
+    this.servicePokemon.getPokemon(this.nextUrl).then((data: Result) => {
       this.loadPokemon(data.results);
       this.prevUrl = data.previous;
       this.nextUrl = data.next;
@@ -79,7 +78,16 @@ export class HomePage implements OnInit {
     this.pokemon = allPokemon;
   }
 
-  goTo(pokemon){
-    this.router.navigateByUrl('/detail', { state: {pokemons : pokemon} });
+  goTo(pokemon) {
+    this.router.navigateByUrl('/detail', { state: { pokemons: pokemon } });
+  }
+
+  openSearch() {
+    this.servicePokemon.searchPokemon(this.search.toLowerCase())
+      .then((res) => {
+        this.router.navigateByUrl('/detail', { state: { pokemons: res } });
+        this.notFound = false;
+      })
+      .catch(() => this.notFound = true);
   }
 }

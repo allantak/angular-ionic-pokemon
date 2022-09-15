@@ -7,26 +7,23 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-refresher slot="fixed" (ionRefresh)="refresh($event)">
-    <ion-refresher-content></ion-refresher-content>
-  </ion-refresher>
 
   <ion-header collapse="condense" mode="ios">
     <ion-toolbar>
       <ion-title size="large">
-        PokemonApi
+        Pokemon
       </ion-title>
     </ion-toolbar>
 
     <ion-toolbar>
-      <p class="ion-padding-start">Search your pokemon</p>
+      <p class="ion-padding-start">Pesquise seu pokemon</p>
     </ion-toolbar>
 
     <ion-toolbar>
-      <ion-searchbar class="ion-padding-top"></ion-searchbar>
+      <ion-searchbar class="ion-padding-top" [(ngModel)]='search' (change)="openSearch()"></ion-searchbar>
+      <ion-label *ngIf="notFound" class="ion-padding-start" color="danger">Pesquisa não encontrada</ion-label>
     </ion-toolbar>
   </ion-header>
-
 
   <app-card (click)="goTo(pokemons)" *ngFor="let pokemons of pokemon" [pokemons]="pokemons"></app-card>
 

@@ -16,4 +16,8 @@ export class PokemonService {
   getPokemon(url){
     return this.http.get(url).toPromise();
   }
+
+  searchPokemon(id) {
+    return this.http.get(this.urlPokemon + id).toPromise();
+  }
 }
