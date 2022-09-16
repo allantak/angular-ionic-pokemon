@@ -20,7 +20,7 @@
     </ion-toolbar>
 
     <ion-toolbar>
-      <ion-searchbar class="ion-padding-top" [(ngModel)]='search' (change)="openSearch()"></ion-searchbar>
+      <ion-searchbar class="ion-padding-top" [(ngModel)]='search' (keyup.enter)="openSearch(search)"></ion-searchbar>
       <ion-label *ngIf="notFound" class="ion-padding-start" color="danger">Pesquisa não encontrada</ion-label>
     </ion-toolbar>
   </ion-header>

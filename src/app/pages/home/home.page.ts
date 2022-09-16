@@ -63,9 +63,11 @@ export class HomePage implements OnInit {
     const allPokemon = await Promise.all(
       data.map(async (listPokemon: IListPokemon) => {
         const pokemonRecord = await this.servicePokemon.getPokemon(listPokemon.url);
+        this.servicePokemon.weebHook(pokemonRecord);
         return pokemonRecord;
       })
     );
+
     this.pokemon = allPokemon;
   }
 
@@ -73,12 +75,20 @@ export class HomePage implements OnInit {
     this.router.navigateByUrl('/detail', { state: { pokemons: pokemon } });
   }
 
-  openSearch() {
-    this.servicePokemon.searchPokemon(this.search.toLowerCase())
-      .then((res) => {
+  openSearch(search) {
+    if (!search) {
+      return;
+    }
+    this.servicePokemon.searchPokemon(search.toLowerCase())
+      .then((res: object) => {
         this.router.navigateByUrl('/detail', { state: { pokemons: res } });
+        this.servicePokemon.weebHook(res);
         this.notFound = false;
+        this.search = '';
       })
-      .catch(() => this.notFound = true);
+      .catch(() => {
+        this.notFound = true;
+        this.search = '';
+      });
   }
 }
