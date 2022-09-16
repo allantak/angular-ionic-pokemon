@@ -1,7 +1,7 @@
 <ion-header mode="ios">
   <ion-toolbar [style.--background]="colorNavbar">
     <ion-buttons slot="start">
-      <ion-back-button text="" color="light" defaultHref="/"></ion-back-button>
+      <ion-back-button text="" defaultHref="/"></ion-back-button>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
@@ -11,15 +11,16 @@
     <div>
 
       <div class="content-card-header">
-        <ion-card-title color="light">{{pokemons.name}}</ion-card-title>
-        <ion-card-title color="light">#{{pokemons.id}}</ion-card-title>
+        <ion-card-title>{{pokemons.name}}</ion-card-title>
+        <ion-card-title>#{{pokemons.id}}</ion-card-title>
       </div>
 
 
       <div class="wrapper-content-type">
         <div class="wrapper-type">
 
-          <p *ngFor="let type of pokemons.types" [style.background-color]="type.type.name | typeColor" class="typesPokemon">
+          <p *ngFor="let type of pokemons.types" [style.background-color]="type.type.name | typeColor"
+            class="typesPokemon">
             {{type.type.name}}</p>
         </div>
       </div>
@@ -33,60 +34,60 @@
   </div>
 </ion-header>
 
-<ion-content [fullscreen]="true" [style.--background]="colorNavbar">
+<ion-content [fullscreen]="true">
+  <ion-row class="backgroundCostumer ion-padding ">
+    <ion-col>
 
-  <div class="ion-padding backgroundCostumer" color="light">
+      <ion-segment mode="md" (ionChange)="segmentChanged($event)" value="about">
+        <ion-segment-button value="about">
+          <ion-label>Sobre</ion-label>
+        </ion-segment-button>
+        <ion-segment-button value="stats">
+          <ion-label>Status</ion-label>
+        </ion-segment-button>
+      </ion-segment>
 
-
-    <ion-segment mode="md" (ionChange)="segmentChanged($event)" value="about">
-      <ion-segment-button value="about">
-        <ion-label>Sobre</ion-label>
-      </ion-segment-button>
-      <ion-segment-button value="stats">
-        <ion-label>Status</ion-label>
-      </ion-segment-button>
-    </ion-segment>
-
-    <div *ngIf="segmentValue === 'about'">
-      <div class="wrapper-about-card ion-margin-top">
-        <ion-card-content>
-          <ion-label>
-            {{pokemons.weight}} lbs
-          </ion-label>
-          <ion-card-subtitle>
-            Peso
-          </ion-card-subtitle>
-        </ion-card-content>
-        <ion-card-content>
-          <ion-label>
-            {{pokemons.height}} ft
-          </ion-label>
-          <ion-card-subtitle>
-            Altura
-          </ion-card-subtitle>
-        </ion-card-content>
-        <ion-card-content>
-          <ion-label>
-            {{pokemons.base_experience}}
-          </ion-label>
-          <ion-card-subtitle>
-            experiência<br />base
-          </ion-card-subtitle>
-        </ion-card-content>
-      </div>
-    </div>
-
-    <div *ngIf="segmentValue === 'stats'">
-
-      <div class="wrapper-stats" *ngFor="let stats of pokemons.stats">
-        <ion-label>{{stats.stat.name}}</ion-label>
-        <span>{{stats.base_stat}}</span>
-        <ion-progress-bar mode="ios" color="primary" value="{{stats.base_stat | progressBar }}"></ion-progress-bar>
+      <div *ngIf="segmentValue === 'about'">
+        <div class="wrapper-about-card ion-margin-top">
+          <ion-card-content>
+            <ion-label>
+              {{pokemons.weight}} lbs
+            </ion-label>
+            <ion-card-subtitle>
+              Peso
+            </ion-card-subtitle>
+          </ion-card-content>
+          <ion-card-content>
+            <ion-label>
+              {{pokemons.height}} ft
+            </ion-label>
+            <ion-card-subtitle>
+              Altura
+            </ion-card-subtitle>
+          </ion-card-content>
+          <ion-card-content>
+            <ion-label>
+              {{pokemons.base_experience}}
+            </ion-label>
+            <ion-card-subtitle>
+              experiência<br />base
+            </ion-card-subtitle>
+          </ion-card-content>
+        </div>
       </div>
 
-    </div>
+      <div *ngIf="segmentValue === 'stats'">
+
+        <div class="wrapper-stats" *ngFor="let stats of pokemons.stats">
+          <ion-label>{{stats.stat.name}}</ion-label>
+          <span>{{stats.base_stat}}</span>
+          <ion-progress-bar mode="ios" value="{{stats.base_stat | progressBar }}"></ion-progress-bar>
+        </div>
+
+      </div>
 
 
+    </ion-col>
+  </ion-row>
 
-  </div>
 </ion-content>

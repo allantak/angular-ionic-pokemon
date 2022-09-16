@@ -1,6 +1,8 @@
 @import url('../../../theme/variables.scss');
 
 ion-header:nth-child(1) {
+
+
   ion-toolbar {
     --background: '#9eb7b';
     border-style: none;
@@ -8,6 +10,7 @@ ion-header:nth-child(1) {
     --border-style: none;
 
     ion-back-buttton {
+      color: white;
       font-size: 15px;
     }
   }
@@ -15,6 +18,7 @@ ion-header:nth-child(1) {
 
 ion-header:nth-child(2) {
   --border-style: none;
+  color: white;
 
   .wrapper-content-header {
     display: flex;
@@ -31,6 +35,7 @@ ion-header:nth-child(2) {
       ion-card-title {
         margin-bottom: 4px;
         text-transform: capitalize;
+        color: white;
       }
 
 
@@ -47,7 +52,6 @@ ion-header:nth-child(2) {
           text-align: center;
           border: 1px solid white;
           padding: 5px;
-          background-color: blueviolet;
           border-radius: 5px;
           color: white;
           min-width: 80px;
@@ -74,35 +78,14 @@ ion-header:nth-child(2) {
 
 }
 
-
-ion-content {
-  --background: aquamarine;
-
-  h6 {
-    font-size: 17px;
-    text-align: center;
-  }
-}
-
 .backgroundCostumer {
   border-radius: 40px 40px 0 0;
   height: 100%;
-  background-color: white;
 }
-
 
 
 ion-segment {
   margin-top: 16px;
-}
-
-.wrapper-about-card {
-
-
-  ion-card-content {
-    display: flex;
-    flex-direction: column;
-  }
 }
 
 .wrapper-stats {

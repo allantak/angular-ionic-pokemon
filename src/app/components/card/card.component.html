@@ -4,10 +4,10 @@
       <ion-card-subtitle>#{{pokemons.id}}</ion-card-subtitle>
       <ion-card-title>{{pokemons.name}}</ion-card-title>
 
-      <div class="wrapper-type">
+      <div class="wrapper-type ion-padding-top">
 
-        <p *ngFor="let type of pokemons.types" [style.background-color]="type.type.name | typeColor" class="typesPokemon">
-          {{type.type.name}}</p>
+        <ion-label *ngFor="let type of pokemons.types" [style.background-color]="type.type.name | typeColor" class="typesPokemon">
+          {{type.type.name}}</ion-label>
 
       </div>
 
