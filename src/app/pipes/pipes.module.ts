@@ -1,3 +1,4 @@
+import { StatsColorPipe } from './statsColor/stats-color.pipe';
 import { ProgressBarPipe } from './progressBar/progress-bar.pipe';
 import { TypeBackGroundColorPipe } from './typeBackGroundColor/type-back-ground-color.pipe';
 import { TypeColorPipe } from './typeColor/type-color.pipe';
@@ -9,14 +10,17 @@ import { CommonModule } from '@angular/common';
   declarations: [
     TypeColorPipe,
     TypeBackGroundColorPipe,
-    ProgressBarPipe],
+    ProgressBarPipe,
+    StatsColorPipe
+  ],
   imports: [
     CommonModule
   ],
   exports: [
     TypeColorPipe,
     TypeBackGroundColorPipe,
-    ProgressBarPipe
+    ProgressBarPipe,
+    StatsColorPipe
   ],
 })
 export class PipesModule { }

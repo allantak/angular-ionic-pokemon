@@ -34,7 +34,14 @@
     </ion-toolbar>
   </ion-header>
 
-  <app-card (click)="goTo(pokemons)" *ngFor="let pokemons of pokemon" [pokemons]="pokemons"></app-card>
+  <ion-grid>
+    <ion-row>
+      <ion-col *ngFor="let pokemons of pokemon" sizeLg="6" sizeMd="6" sizeXs="12" class="diretion-flex-column" >
+        <app-card (click)="goTo(pokemons)" [pokemons]="pokemons"></app-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
 
   <ion-row>
     <ion-col size="6" class="ion-justify-content-end">

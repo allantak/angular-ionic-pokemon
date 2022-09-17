@@ -1,3 +1,4 @@
+import { StatsColorPipe } from './../../pipes/statsColor/stats-color.pipe';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
@@ -25,6 +26,7 @@ import { TypeColorPipe } from '../../pipes/typeColor/type-color.pipe';
     TypeColorPipe,
     ProgressBarPipe,
     TypeBackGroundColorPipe,
+    StatsColorPipe
   ]
 })
 export class ViewMessagePageModule { }
