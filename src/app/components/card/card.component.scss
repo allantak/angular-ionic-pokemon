@@ -2,6 +2,11 @@
   z-index: -99;
   overflow: visible;
 
+  .hearder {
+    display: flex;
+    justify-content: space-between;
+  }
+
   ion-card-title {
     text-transform: capitalize;
   }
@@ -24,29 +29,24 @@
   }
 }
 
-.hearder {
-  display: flex;
-  justify-content: space-between;
+div:nth-child(2) {
+  z-index: 0;
 
-  div:nth-child(2) {
-    z-index: 0;
+  img {
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
+    z-index: -1;
+  }
 
-    img {
-      width: 100px;
-      height: 100px;
-      object-fit: contain;
-      z-index: -1;
-    }
-
-    .background-circul {
-      position: absolute;
-      width: 100px;
-      height: 100px;
-      right: 0px;
-      top: 0px;
-      border-radius: 0 0 0 10rem;
-      background-color: blueviolet;
-      z-index: -2;
-    }
+  .background-circul {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    right: 0px;
+    top: 0px;
+    border-radius: 0 0 0 10rem;
+    background-color: blueviolet;
+    z-index: -2;
   }
 }

@@ -1,17 +1,16 @@
 <ion-card class="wrapper-card">
   <ion-card-header class="hearder">
-    <div>
-      <ion-card-subtitle>#{{pokemons.id}}</ion-card-subtitle>
-      <ion-card-title>{{pokemons.name}}</ion-card-title>
-
-      <div class="wrapper-type ion-padding-top">
-
-        <ion-label *ngFor="let type of pokemons.types" [style.background-color]="type.type.name | typeColor" class="typesPokemon">
-          {{type.type.name}}</ion-label>
-
+    <ion-col class="ion-justify-content-between">
+      <div>
+        <ion-card-subtitle>#{{pokemons.id}}</ion-card-subtitle>
+        <ion-card-title>{{pokemons.name}}</ion-card-title>
       </div>
 
-    </div>
+      <div class="wrapper-type ion-padding-top">
+        <ion-label *ngFor="let type of pokemons.types" [style.background-color]="type.type.name | typeColor" class="typesPokemon">
+          {{type.type.name}}</ion-label>
+      </div>
+    </ion-col>
     <div>
       <img [src]="imgUrl">
       <div class="background-circul" [style.background-color]="colorType"></div>
