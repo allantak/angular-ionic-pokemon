@@ -4,10 +4,10 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 const routes: Routes = [
   {
     path: 'home',
-    loadChildren: () => import('./pages/home/home.module').then( m => m.HomePageModule)
+    loadChildren: () => import('./pages/home/home.module').then(m => m.HomePageModule)
   },
   {
-    path: 'detail', loadChildren: () => import('./pages/view-pokemon/view-pokemon.module').then( m => m.ViewMessagePageModule)
+    path: 'detail', loadChildren: () => import('./pages/view-pokemon/view-pokemon.module').then(m => m.ViewMessagePageModule)
   },
   {
     path: '',

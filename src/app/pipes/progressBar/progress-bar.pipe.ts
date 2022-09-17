@@ -6,7 +6,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 export class ProgressBarPipe implements PipeTransform {
 
   transform(value: number): number {
-    return value/255;
+    return value / 255;
   }
 
 }

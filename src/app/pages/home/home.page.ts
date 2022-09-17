@@ -28,10 +28,10 @@ export class HomePage implements OnInit {
     this.getAllPokemon();
   }
 
-  onToggleColorTheme(event){
-    if(event.detail.checked){
+  onToggleColorTheme(event) {
+    if (event.detail.checked) {
       document.body.setAttribute('color-theme', 'dark');
-    }else{
+    } else {
       document.body.setAttribute('color-theme', 'light');
     }
   }

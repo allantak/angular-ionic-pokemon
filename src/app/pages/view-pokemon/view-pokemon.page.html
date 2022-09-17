@@ -35,7 +35,7 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-row class="backgroundCostumer ion-padding ">
+  <ion-row class="ion-padding ">
     <ion-col>
 
       <ion-segment mode="md" (ionChange)="segmentChanged($event)" value="about">
@@ -48,7 +48,7 @@
       </ion-segment>
 
       <div *ngIf="segmentValue === 'about'">
-        <div class="wrapper-about-card ion-margin-top">
+        <div class="ion-margin-top">
           <ion-card-content>
             <ion-label>
               {{pokemons.weight / 100}} lbs
@@ -81,7 +81,8 @@
         <div class="wrapper-stats" *ngFor="let stats of pokemons.stats">
           <ion-label>{{stats.stat.name}}</ion-label>
           <span>{{stats.base_stat}}</span>
-          <ion-progress-bar mode="ios" value="{{stats.base_stat | progressBar }}" [style.--progress-background]="stats.stat.name | statsColor"></ion-progress-bar>
+          <ion-progress-bar mode="ios" value="{{stats.base_stat | progressBar }}"
+            [style.--progress-background]="stats.stat.name | statsColor"></ion-progress-bar>
         </div>
 
       </div>
