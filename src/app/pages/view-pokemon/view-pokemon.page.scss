@@ -57,20 +57,14 @@ ion-header:nth-child(2) {
       text-align: center;
 
       img {
-        position: relative;
         width: 100px;
         height: 100px;
         object-fit: contain;
-        top: 20%;
       }
     }
 
   }
 
-}
-
-ion-segment {
-  margin-top: 16px;
 }
 
 .wrapper-stats {

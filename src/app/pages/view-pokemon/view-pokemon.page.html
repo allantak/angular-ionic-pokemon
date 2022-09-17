@@ -34,61 +34,54 @@
   </div>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-row class="ion-padding ">
-    <ion-col>
+<ion-content class="ion-padding" [fullscreen]="true">
+  <ion-segment mode="md" (ionChange)="segmentChanged($event)" value="about">
+    <ion-segment-button value="about">
+      <ion-label>Sobre</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="stats">
+      <ion-label>Status</ion-label>
+    </ion-segment-button>
+  </ion-segment>
 
-      <ion-segment mode="md" (ionChange)="segmentChanged($event)" value="about">
-        <ion-segment-button value="about">
-          <ion-label>Sobre</ion-label>
-        </ion-segment-button>
-        <ion-segment-button value="stats">
-          <ion-label>Status</ion-label>
-        </ion-segment-button>
-      </ion-segment>
+  <div *ngIf="segmentValue === 'about'">
+    <div class="ion-margin-top">
+      <ion-card-content>
+        <ion-label>
+          {{pokemons.weight / 100}} lbs
+        </ion-label>
+        <ion-card-subtitle>
+          Peso
+        </ion-card-subtitle>
+      </ion-card-content>
+      <ion-card-content>
+        <ion-label>
+          {{pokemons.height / 100}} ft
+        </ion-label>
+        <ion-card-subtitle>
+          Altura
+        </ion-card-subtitle>
+      </ion-card-content>
+      <ion-card-content>
+        <ion-label>
+          {{pokemons.base_experience}}
+        </ion-label>
+        <ion-card-subtitle>
+          experiência<br />base
+        </ion-card-subtitle>
+      </ion-card-content>
+    </div>
+  </div>
 
-      <div *ngIf="segmentValue === 'about'">
-        <div class="ion-margin-top">
-          <ion-card-content>
-            <ion-label>
-              {{pokemons.weight / 100}} lbs
-            </ion-label>
-            <ion-card-subtitle>
-              Peso
-            </ion-card-subtitle>
-          </ion-card-content>
-          <ion-card-content>
-            <ion-label>
-              {{pokemons.height / 100}} ft
-            </ion-label>
-            <ion-card-subtitle>
-              Altura
-            </ion-card-subtitle>
-          </ion-card-content>
-          <ion-card-content>
-            <ion-label>
-              {{pokemons.base_experience}}
-            </ion-label>
-            <ion-card-subtitle>
-              experiência<br />base
-            </ion-card-subtitle>
-          </ion-card-content>
-        </div>
-      </div>
+  <div *ngIf="segmentValue === 'stats'">
 
-      <div *ngIf="segmentValue === 'stats'">
+    <div class="wrapper-stats" *ngFor="let stats of pokemons.stats">
+      <ion-label>{{stats.stat.name}}</ion-label>
+      <span>{{stats.base_stat}}</span>
+      <ion-progress-bar mode="ios" value="{{stats.base_stat | progressBar }}"
+        [style.--progress-background]="stats.stat.name | statsColor"></ion-progress-bar>
+    </div>
 
-        <div class="wrapper-stats" *ngFor="let stats of pokemons.stats">
-          <ion-label>{{stats.stat.name}}</ion-label>
-          <span>{{stats.base_stat}}</span>
-          <ion-progress-bar mode="ios" value="{{stats.base_stat | progressBar }}"
-            [style.--progress-background]="stats.stat.name | statsColor"></ion-progress-bar>
-        </div>
-
-      </div>
-
-
-    </ion-col>
-  </ion-row>
+  </div>
 
 </ion-content>
