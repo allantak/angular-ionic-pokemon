@@ -22,8 +22,4 @@ export class PokemonService {
   searchPokemon(id) {
     return this.http.get(this.urlPokemon + id).toPromise();
   }
-
-  weebHook(pokemon: object) {
-    return this.http.post(this.urlWeebHook, JSON.stringify(pokemon)).toPromise();
-  }
 }

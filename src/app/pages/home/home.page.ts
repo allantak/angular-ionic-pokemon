@@ -67,7 +67,6 @@ export class HomePage implements OnInit {
     const allPokemon = await Promise.all(
       data.map(async (listPokemon: IListPokemon) => {
         const pokemonRecord = await this.servicePokemon.getPokemon(listPokemon.url);
-        this.servicePokemon.weebHook(pokemonRecord);
         return pokemonRecord;
       })
     );
@@ -86,7 +85,6 @@ export class HomePage implements OnInit {
     this.servicePokemon.searchPokemon(search.toLowerCase())
       .then((res: object) => {
         this.router.navigateByUrl('/detail', { state: { pokemons: res } });
-        this.servicePokemon.weebHook(res);
         this.notFound = false;
         this.search = '';
       })
